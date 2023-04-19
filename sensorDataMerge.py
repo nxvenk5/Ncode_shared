@@ -13,6 +13,7 @@ class SensorDataMerge:
     #This also checks the highest rate for a given time and puts it into the dict
     def sensorData(self, sensor_data):
         for start, end, rate in sensor_data:
+            rate=rate//(end-start)
             for second in range(start, end): # As suggested during our discussion, I am looping through start time and end time and finding the highest rate
                 if second not in self.data or rate > self.data[second]:
                     self.data[second] = rate
